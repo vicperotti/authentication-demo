@@ -91,7 +91,7 @@ export const Layout = () => {
               sx={{ flexGrow: 1 }}
               component="div"
             >
-              Sample Application
+              Demo App with Authentication
             </Typography>
             {user && (
               <div>
