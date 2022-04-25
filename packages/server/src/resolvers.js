@@ -9,6 +9,16 @@ export const resolvers = {
     session: async (_, args, context) => {
       return context.session;
     },
+    users: async (_, args, { user }) => {
+      if (!user) throw new Error("User not authenticated.");
+
+      return await User.findAll();
+    },
+    user: async (_, { id }, { user }) => {
+      if (!user) throw new Error("User not authenticated.");
+
+      return await User.findByPk(id);
+    },
   },
   Mutation: {
     createUser: async (_, { input }) => {
@@ -17,7 +27,6 @@ export const resolvers = {
 
         const passwordHash = await getHash(password);
 
-        console.log("Test");
         const user = {
           email,
           firstName,
@@ -60,6 +69,13 @@ export const resolvers = {
           ...user.get(),
         },
       };
+    },
+    logout: async (_, args, context) => {
+      if (context && context.session) {
+        context.session.destroy(() => ({
+          ok: true,
+        }));
+      }
     },
   },
 };

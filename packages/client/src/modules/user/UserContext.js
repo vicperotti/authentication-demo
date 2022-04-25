@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { GET_SESSION } from "./queries";
 
 const Context = React.createContext({});
@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
       });
     },
   });
-  console.log(state);
+
   return (
     <Context.Provider value={{ ...state, loading, error }}>
       {children}
@@ -25,3 +25,4 @@ export const UserProvider = ({ children }) => {
 };
 
 export const useUser = () => useContext(Context).user;
+export const useSession = () => useContext(Context).session;

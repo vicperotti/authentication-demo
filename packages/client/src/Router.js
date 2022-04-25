@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
+import { Users } from "./pages/Users";
 import { PageNotFound } from "./pages/PageNotFound";
 import { RegisterUser } from "./pages/RegisterUser";
 import { RegistrationSuccess } from "./pages/RegistrationSuccess";
@@ -17,6 +18,7 @@ export const Router = () => (
           <Route path="success" element={<RegistrationSuccess />} />
         </Route>
         <Route path="login" element={<Login />} />
+        <Route path="users" element={<Users />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>

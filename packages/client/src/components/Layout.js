@@ -1,6 +1,6 @@
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { Button, Container, Icon, IconButton, Link } from "@mui/material";
+import { Container, Icon, IconButton } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -11,6 +11,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { LogoutButton } from "../modules/user/LogoutButton";
 import { useUser } from "../modules/user/UserContext";
 import { Navigation } from "./Navigation";
 
@@ -97,9 +98,7 @@ export const Layout = () => {
                 <Typography variant="body" component="div">
                   Signed in as {user.firstName} {user.lastName} ({user.email})
                   &nbsp;
-                  <Button href="/logout" color="inherit">
-                    Log Out
-                  </Button>
+                  <LogoutButton />
                 </Typography>
               </div>
             )}

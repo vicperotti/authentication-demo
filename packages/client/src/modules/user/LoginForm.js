@@ -18,7 +18,7 @@ export const LoginForm = () => {
     onCompleted: () => {
       navigate("/");
     },
-    refetchQueries: ["GET_SESSION"],
+    refetchQueries: ["GET_SESSION", "GET_USERS"],
   });
   const {
     handleReset,
@@ -40,10 +40,6 @@ export const LoginForm = () => {
     },
     validationSchema,
   });
-
-  if (error) {
-    console.error(error);
-  }
 
   return (
     <form onSubmit={handleSubmit} onReset={handleReset}>

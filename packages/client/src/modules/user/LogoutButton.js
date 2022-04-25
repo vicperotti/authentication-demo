@@ -1,11 +1,17 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { useMutation } from "@apollo/client";
-import { LOGOUT_USER } from "./queries";
+import { LOGOUT_USER } from "./mutations";
+import { useNavigate } from "react-router-dom";
+import { client } from "../..";
 
 export const LogoutButton = () => {
+  const navigate = useNavigate();
   const [logout, { error, loading }] = useMutation(LOGOUT_USER, {
-    refetchQueries: ["GET_SESSION"],
+    onCompleted: () => {
+      client.resetStore();
+      navigate("/");
+    },
   });
   if (error) {
     console.error(error);

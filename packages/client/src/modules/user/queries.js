@@ -12,3 +12,14 @@ export const GET_SESSION = gql`
     }
   }
 `;
+
+export const GET_USERS = gql`
+  query GET_USERS {
+    users {
+      id
+      email
+      firstName
+      lastName
+    }
+  }
+`;

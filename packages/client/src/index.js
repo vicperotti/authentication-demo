@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Router } from "./Router";
 import { UserProvider } from "./modules/user/UserContext";
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   uri: "/graphql/",
   cache: new InMemoryCache(),
   defaultOptions: {

@@ -24,9 +24,11 @@ export const AUTHENTICATE_USER = gql`
 
 export const LOGOUT_USER = gql`
   mutation LOGOUT_USER {
-    ok
-    errors {
-      message
+    logout {
+      ok
+      errors {
+        message
+      }
     }
   }
 `;

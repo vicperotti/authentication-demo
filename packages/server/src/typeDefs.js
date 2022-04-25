@@ -68,5 +68,6 @@ export const typeDefs = gql`
     createUser(input: CreateUserInput!): Result
     updateUser(id: ID!, input: CreateUserInput!): Result
     authenticate(username: String!, password: String!): AuthenticationResult
+    logout: Result
   }
 `;
